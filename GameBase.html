@@ -5,28 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GameBase</title>
     <link rel="stylesheet" href="style.css">    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-  </head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script> 
+</head>
+
 <body class="body">
+  <div style="display:none;" id="not_signed">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-              <a class="navbar-brand" href="#"><img src="icon.jfif" alt="" height="30px" width="30px"></a>
+              <a class="navbar-brand" href="#"><img style="margin-bottom: 10px;" src="icon.jfif" alt="" height="30px" width="30px"></a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a style="margin: bottom 15px;" class="nav-link active" aria-current="page" href="#">Home</a>
                   </li>
-                  <div style="padding: 5px 20px 8px 0px;">
-                <button class="btn btn-warning btn-sm"> Category &nabla;</button>
-                  </div>
+                    <div style="margin-right: 10px;margin-bottom: 10px;" class="dropdown">
+                      <button onclick="pleaselogin()" class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        Category
+                      </button>
+                      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Adventure</a></li>
+                        <li><a class="dropdown-item" href="#">Arcade</a></li>
+                        <li><a class="dropdown-item" href="#">Puzzles</a></li>
+                        <li><a class="dropdown-item" href="#">Racing</a></li>
+                      </ul>
+                    </div>
                     <div >
                 <form class="d-flex">
                   <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-outline-success" type="submit" autocomplete="on">Search</button>
+                  <button onclick="pleaselogin()" class="btn btn-outline-success" type="submit" autocomplete="on">Search</button>
                 </form>
                 </div>
               </ul>
@@ -45,137 +56,65 @@ Login
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      <form action="">
+      <form id="loginform" action="" autocomplete="on" novalidate>
         <label for="email">Email-Id:</label>
-        <input class="form-control" id="email" type="text" placeholder=" email-Id" name="email-id">
+        <input class="form-control" id="email" type="text" placeholder=" email-Id" name="email-id" required>
         <br><br>
         <label  for="password">Password:</label>
-        <input class="form-control login" id="password" type="password" placeholder="password" name="password">
+        <input class="form-control login" id="password" type="password" placeholder="password" name="password" required >
+        <br>
+        <button type="button" class="btn btn-primary" onclick="myfunction()">Sign-in</button>
       </form>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Submit</button>
       </div>
-    </div>
-  </div>
-</div> 
-              </ul>
-              <ul style="padding-left: 0%; padding-top: 5px;">
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#Sign-Up">
-  Sign-Up
+      </div>
+      </ul>
+      <ul style="padding-left: 0%; padding-top: 5px;">
+      <!-- Button trigger modal -->
+<button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModall">
+  Sign Up
 </button>
 
 <!-- Modal -->
-<div class="modal fade" id="Sign-Up" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModall" tabindex="-1" aria-labelledby="exampleModalLabell" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="Sign-Up">Register</h5>
+      <div style="background-color: gray;" class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Register</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form class="row g-3 needs-validation" novalidate>
-          <div class="col-md-4">
-            <label for="validationCustom01" class="form-label">First name</label>
-            <input type="text" class="form-control" id="validationCustom01" placeholder="First Name" required>
-            <div class="valid-feedback">
-              Looks good!
+      </div style="text-align: center;">
+      <div style="text-align: center;" class="modal-body">
+        <form id="form" style="text-align: center;" class="row gy-2 gx-3 align-items-center">
+          <div class="col-7">
+            <label class="visually-hidden" for="autoSizingInputt">Name</label>
+            <input type="text" class="form-control" id="autoSizingInputt" placeholder="Name">
+          </div> 
+          <br>
+          <br><br>
+          <div class="col-7">
+            <label class="visually-hidden" for="autoSizingInputGroup">Email</label>
+            <div  class="input-group">
+            <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Email">
+            </div>
+            <br>
+            <div class="col-">
+              <label class="visually-hidden" for="autoSizingInput">Password</label>
+              <input type="password" class="form-control" id="autoSizingInput" placeholder="Password">
             </div>
           </div>
-          <div class="col-md-4">
-            <label for="validationCustom02" class="form-label">Last name</label>
-            <input type="text" class="form-control" id="validationCustom02" placeholder="Last Name" required>
-            <div class="valid-feedback">
-              Looks good!
-            </div>
-          </div>
-          <div class="col-md-4">
-            <label for="validationCustomUsername" class="form-label">Username</label>
-            <div class="input-group has-validation">
-              <span class="input-group-text" id="inputGroupPrepend">@</span>
-              <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required placeholder="Username@#$%">
-              <div class="invalid-feedback">
-                Please choose a username.
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <label for="validationCustom03" class="form-label">City</label>
-            <input type="text" class="form-control" id="validationCustom03" required placeholder="City">
-            <div class="invalid-feedback">
-              Please provide a valid city.
-            </div>
-          </div>
-          <div class="col-md-3">
-            <label for="validationCustom04" class="form-label">State</label>
-            <select class="form-select" id="validationCustom04" required>
-              <option selected disabled value="">Choose...</option>
-              <option>Andhra Pradesh</option>
-              <option>Arunachal Pradesh</option>
-              <option>Assam</option>
-              <option>Bihar</option>
-              <option>Chhattisgarh</option>
-              <option>Delhi</option>
-              <option>Goa</option>
-              <option>Gujarat</option>
-              <option>Haryana</option>
-              <option>Himachal Pradesh</option>
-              <option>Jharkhand</option>
-              <option>Karnataka</option>
-              <option>Kerala</option>
-              <option>Madhya Pradesh</option>
-              <option>Maharashtra</option>
-              <option>Manipur</option>
-              <option>Meghalaya</option>
-              <option>Mizoram</option>
-              <option>Nagaland</option>
-              <option>Odisha</option>
-              <option>Punjab</option>
-              <option>Rajasthan</option>
-              <option>Sikkim</option>
-              <option>Tamil Nadu</option>
-              <option>Telangana</option>
-              <option>Tripura</option>
-              <option>Uttar Pradesh</option>
-              <option>Uttarakhand</option>
-              <option>West Bengal</option>
-
-            </select>
-            <div class="invalid-feedback">
-              Please select a valid state.
-            </div>
-          </div>
-          <div class="col-md-3">
-            <label for="validationCustom05" class="form-label">Password</label>
-            <input type="text" class="form-control" id="validationCustom05" required>
-            <div class="invalid-feedback">
-              Please provide a valid password.
-            </div>
-          </div>
-          <div class="col-12">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-              <label class="form-check-label" for="invalidCheck">
-                Agree to terms and conditions
-              </label>
-              <div class="invalid-feedback">
-                You must agree before submitting.
-              </div>
-            </div>
-          </div>
-          <div class="col-12">
-            <button class="btn btn-primary" type="submit">Submit form</button>
+          <div class="col-6">
+          <button type="button" class="btn btn-primary"  onclick="submitform()">Submit</button>
           </div>
         </form>
       </div>
     </div>
   </div>
 </div>
-              </ul>
-              </div>
-            </div>
+        
+        
+</ul>
+</div>
+</div>
           </nav>
           <!--Images below the nav-bar-->
           <div class="row">
@@ -208,7 +147,82 @@ Login
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="visually-hidden">Next</span>
             </a>
-            </div>
-          
-</body>
-</html>
+          </div>
+  </div>
+
+<div id="signed_in">
+                   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                      <div class="container-fluid">
+                        <a class="navbar-brand" href="#"><img  style="margin-bottom: 10px;" src="icon.jfif" alt="" height="30px" width="30px"></a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                          <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                              <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            </li>
+                              <div  style="margin-right: 10px;margin-bottom: 10px;" class="dropdown">
+                                <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                 Category
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                  <li><a class="dropdown-item" href="#">Action</a></li>
+                                  <li><a class="dropdown-item" href="#">Adventure</a></li>
+                                  <li><a class="dropdown-item" href="#">Arcade</a></li>
+                                  <li><a class="dropdown-item" href="#">Puzzles</a></li>
+                                  <li><a class="dropdown-item" href="#">Racing</a></li>
+                                </ul>
+                              </div>
+                              <div >
+                          <form class="d-flex">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit" autocomplete="on">Search</button>
+                          </form>
+                          </div>
+                        </ul>
+                        <ul style="padding-left: 0%; padding-right: 5px; padding-bottom: 0%; padding-top: 5px;">
+                                      <!-- Button trigger modal -->
+          <button style="margin: 0%;" type="button" class="btn btn-outline-success" onclick="logout()">Logout</button>
+                       </div>
+                      </div>
+                    </nav>
+                    <!--Images below the nav-bar-->
+                    <div class="row">
+                    <div style="padding: 0px;" class="col"><img src="ug1.jfif" class="img-thumbnail" alt="ug1" style="height: 150px;width: 150px;"></div>
+                    <div style="padding: 0px;" class="col"><img src="ug2.jfif" class="img-thumbnail" alt="ug2" style="height: 150px;width: 150px;"></div>
+                    <div style="padding: 0px;" class="col"><img src="ug3.jfif" class="img-thumbnail" alt="ug3" style="height: 150px;width: 150px;"></div>
+                    <div style="padding: 0px; padding-right: 0px;" class="col-lg-4"><img src="logo.png" class="img-thumbnail" alt="logo" style="height: 150px;width: 440px;"></div>
+                    <div style="padding: 0px;" class="col"><img src="ug4.jfif" class="img-thumbnail" alt="ug4" style="height: 150px;width: 150px;"></div>
+                    <div style="padding: 0px;" class="col"><img src="ug5.jfif" class="img-thumbnail" alt="ug5" style="height: 150px;width: 150px;"></div>
+                    <div style="padding: 0px;" class="col"><img src="game3.jfif" class="img-thumbnail" alt="game3" style="height: 150px;width: 150px;"></div>
+                    </div>
+                    </div>
+                    
+                    
+                    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+                    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
+                    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+                    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
+                    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
+
+                    <script> 
+                    // Your web app's Firebase configuration
+                    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+                    var firebaseConfig = {
+                      apiKey: "AIzaSyAkhKtPyqQWyGkIsSYg6JvScAP-h3x2WXs",
+                      authDomain: "gamebase-a1227.firebaseapp.com",
+                      projectId: "gamebase-a1227",
+                      storageBucket: "gamebase-a1227.appspot.com",
+                      messagingSenderId: "210589543486",
+                      appId: "1:210589543486:web:7bbf8b34b6f395a4a2356f",
+                      measurementId: "G-3S7ELLT1XV"
+                    };
+                    // Initialize Firebase
+                    firebase.initializeApp(firebaseConfig);
+                    firebase.analytics();
+                    </script>
+                    <script src="java.js"></script> 
+  </body>
+  </html>
+  
