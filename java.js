@@ -2,11 +2,13 @@ firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     // User is signed in.
     document.getElementById("not_signed").style.display="none";
-    document.getElementById("signed_in").style.display="initial";
+    document.getElementById("signed_in").style.display="block";
+    
   } else {
     // No user is signed in.
     document.getElementById("signed_in").style.display="none";
-    document.getElementById("not_signed").style.display="initial";
+    document.getElementById("not_signed").style.display="block";
+
   }
 });
 
@@ -44,10 +46,16 @@ function submitform(){
     // ..
     alert("Error:"+errorMessage);
 });
-} 
-const form=document.getElementById("form");
-const refForm=firebase.database().ref().child("form");
-refForm.on('value',snap => console.log(snap.val()));
+}
+function writeUserData(name,email,password) {
+  firebase.database().ref().set({
+    name: name,
+    email: email,
+    password:password
+  });
+}
+
+
 function logout(){
   firebase.auth().signOut().then(() => {
     // Sign-out successful.
@@ -58,4 +66,50 @@ function logout(){
 function pleaselogin(){
   alert("Please Login First");
 }
- 
+
+
+function Pu(){
+  document.getElementById("Puzzles").style.display="initial";
+  document.getElementById("Adventure").style.display="none";
+  document.getElementById("Arcade").style.display="none";
+  document.getElementById("Sports").style.display="none";
+  document.getElementById("Racing").style.display="none";
+  document.getElementById("AllGames").style.display="none";
+
+}
+function Ad(){
+  document.getElementById("Puzzles").style.display="none";
+  document.getElementById("Adventure").style.display="initial";
+  document.getElementById("Arcade").style.display="none";
+  document.getElementById("Sports").style.display="none";
+  document.getElementById("Racing").style.display="none";
+  document.getElementById("AllGames").style.display="none";
+
+}
+function Ar(){
+  document.getElementById("Puzzles").style.display="none";
+  document.getElementById("Adventure").style.display="none";
+  document.getElementById("Arcade").style.display="initial";
+  document.getElementById("Sports").style.display="none";
+  document.getElementById("Racing").style.display="none";
+  document.getElementById("AllGames").style.display="none";
+
+}
+function Sp(){
+  document.getElementById("Puzzles").style.display="none";
+  document.getElementById("Adventure").style.display="none";
+  document.getElementById("Arcade").style.display="none";
+  document.getElementById("Sports").style.display="initial";
+  document.getElementById("Racing").style.display="none";
+  document.getElementById("AllGames").style.display="none";
+
+}
+function Ra(){
+  document.getElementById("Puzzles").style.display="none";
+  document.getElementById("Adventure").style.display="none";
+  document.getElementById("Arcade").style.display="none";
+  document.getElementById("Sports").style.display="none";
+  document.getElementById("Racing").style.display="initial";
+  document.getElementById("AllGames").style.display="none";
+
+}
