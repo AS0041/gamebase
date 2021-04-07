@@ -1,9 +1,9 @@
+
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     // User is signed in.
     document.getElementById("not_signed").style.display="none";
     document.getElementById("signed_in").style.display="block";
-    
   } else {
     // No user is signed in.
     document.getElementById("signed_in").style.display="none";
@@ -18,9 +18,10 @@ function myfunction(){
   firebase.auth().signInWithEmailAndPassword(email, password)
   .then((userCredential) => {
     // Signed in
-    var user = userCredential.user;
+   
     // ...
     alert("Welcome,"+"  "+email);
+    setTimeout(function(){ alert("Reload the page to load the contents."); }, 100);
   })
   .catch((error) => {
     var errorCode = error.code;
@@ -28,7 +29,8 @@ function myfunction(){
     alert("Error:"+errorMessage);
     document.getElementById("loginform").reset();
   });
-}
+  }
+  
 function submitform(){
   var name=document.getElementById("autoSizingInputt").value;
   var email=document.getElementById("autoSizingInputGroup").value;
@@ -39,6 +41,7 @@ function submitform(){
     var user = userCredential.user;
     // ...
     alert("Welcome,"+"  "+email);
+    setTimeout(function(){ alert("Reload the page to load the contents."); }, 100);
   })
   .catch((error) => {
     var errorCode = error.code;
@@ -46,15 +49,12 @@ function submitform(){
     // ..
     alert("Error:"+errorMessage);
 });
+  firebase.database().ref().child("User").push({
+  name:name,
+  email:email,
+  password:password
+});
 }
-function writeUserData(name,email,password) {
-  firebase.database().ref().set({
-    name: name,
-    email: email,
-    password:password
-  });
-}
-
 
 function logout(){
   firebase.auth().signOut().then(() => {
