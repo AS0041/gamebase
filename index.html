@@ -6,7 +6,22 @@
     <title>GameBase</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">  
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script> 
-</head>
+   <style>
+    #myUL li a:hover:not(.header) {
+      background-color: #eee;
+    }
+    #myUL li a {
+  border: 1px solid #ddd;
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block
+}
+  </style>
+  </head>
 
 <body class="body">
   <!--Logged out division-->
@@ -37,7 +52,6 @@
                     </div>
                     <div >
                 <form style="margin-top: 8px;" class="d-flex">
-                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                   <button onclick="pleaselogin()" class="btn btn-outline-success" type="submit" autocomplete="on">Search</button>
                 </form>
                 </div>
@@ -178,10 +192,46 @@ Login
                                 </ul>
                               </div>
                               <div >
-                          <form style="margin-top: 8px;" class="d-flex">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit" autocomplete="on">Search</button>
-                          </form>
+                              <!-- Search tool -->
+<button style="margin-top: 8px;" type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModal3">
+ Search
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel3">Games</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       <form action="">
+        <label for="exampleDataList" class="form-label"></label>
+        <input style="margin-bottom: 15px;" class="form-control" list="datalistOptions" id="exampleDataList" onkeyup="mySearch()" placeholder="Type to search...">
+        <ul id="myUL">
+          <li><a href="index1.html">My Game</a></li>
+          <li><a href="https://games.cdn.famobi.com/html5games/j/jungle-run/v320/?fg_domain=play.famobi.com&fg_aid=A1000-1&fg_uid=a99d8e52-54c2-4729-b64e-1cd4e870f6e5&fg_pid=4638e320-4444-4514-81c4-d80a8c662371&fg_beat=385&original_ref=https%3A%2F%2Fhtml5games.com%2F">Jungle Run</a></li>
+          <li><a href="https://games.cdn.famobi.com/html5games/g/goalkeeper-champ/v070/?fg_domain=play.famobi.com&fg_aid=A1000-1&fg_uid=08c16895-73e4-4646-b0d2-398503758186&fg_pid=4638e320-4444-4514-81c4-d80a8c662371&fg_beat=418&original_ref=https%3A%2F%2Fhtml5games.com%2F">Goalkeeper Champ</a></li>
+          <li><a href="https://games.cdn.famobi.com/html5games/b/banana-run/v100/?fg_domain=play.famobi.com&fg_aid=A1000-1&fg_uid=fba55fc0-407a-4ce9-9c07-bcd3045a3df7&fg_pid=4638e320-4444-4514-81c4-d80a8c662371&fg_beat=385&original_ref=https%3A%2F%2Fhtml5games.com%2F">Banana Run</a></li>
+          <li><a href="https://games.cdn.famobi.com/html5games/u/ultimate-boxing/v020/?fg_domain=play.famobi.com&fg_aid=A1000-1&fg_uid=734d35f4-9606-4a19-9016-acc6081879a2&fg_pid=4638e320-4444-4514-81c4-d80a8c662371&fg_beat=422&original_ref=https%3A%2F%2Fhtml5games.com%2F">Ultimate Boxing</a></li>
+          <li><a href="https://games.cdn.famobi.com/html5games/r/red-head/v020/?fg_domain=play.famobi.com&fg_aid=A1000-1&fg_uid=370b5b5e-d18b-4b32-9856-564873e0e90f&fg_pid=4638e320-4444-4514-81c4-d80a8c662371&fg_beat=390&original_ref=https%3A%2F%2Fhtml5games.com%2F">Red Head</a></li>
+          <li><a href="https://games.cdn.famobi.com/html5games/t/tap-my-water/v040/?fg_domain=play.famobi.com&fg_aid=A1000-1&fg_uid=80e0013c-a40f-4191-93dc-30d3e494ee8f&fg_pid=4638e320-4444-4514-81c4-d80a8c662371&fg_beat=396&original_ref=https%3A%2F%2Fhtml5games.com%2F">Tap My Water</a></li>
+          <li><a href="https://games.cdn.famobi.com/html5games/0/4-in-a-row/v500/?fg_domain=play.famobi.com&fg_aid=A1000-1&fg_uid=5eee0c70-a1df-4d8b-9410-acb7a1782ff0&fg_pid=4638e320-4444-4514-81c4-d80a8c662371&fg_beat=396&original_ref=https%3A%2F%2Fhtml5games.com%2F">4 In A Row</a></li>
+          <li><a href="https://games.cdn.famobi.com/html5games/t/train-2048/v150/?fg_domain=play.famobi.com&fg_aid=A1000-1&fg_uid=abf56d7c-b1c7-493b-b2ac-aecb45d00ef8&fg_pid=4638e320-4444-4514-81c4-d80a8c662371&fg_beat=398&original_ref=https%3A%2F%2Fhtml5games.com%2F">Train 2048</a></li>
+          <li><a href="https://games.cdn.famobi.com/html5games/a/archery-world-tour/v460/?fg_domain=play.famobi.com&fg_aid=A1000-1&fg_uid=ebcb987a-3fd0-4b4a-bae6-f456fff9cac3&fg_pid=4638e320-4444-4514-81c4-d80a8c662371&fg_beat=421&original_ref=https%3A%2F%2Fhtml5games.com%2F">Archery World Tour</a></li>
+          <li><a href="https://games.cdn.famobi.com/html5games/d/drag-racing-club/v060/?fg_domain=play.famobi.com&fg_aid=A1000-1&fg_uid=7903c763-4f6b-48fb-8396-3a18daae70c7&fg_pid=4638e320-4444-4514-81c4-d80a8c662371&fg_beat=401&original_ref=https%3A%2F%2Fhtml5games.com%2F">Drag Racing Club</a></li>
+          <li><a href="https://games.cdn.famobi.com/html5games/h/high-hills/v130/?fg_domain=play.famobi.com&fg_aid=A1000-1&fg_uid=2a35d037-696c-4351-9e34-7260392f9404&fg_pid=4638e320-4444-4514-81c4-d80a8c662371&fg_beat=402&original_ref=https%3A%2F%2Fhtml5games.com%2F">High Hills</a></li>
+          <li><a href="https://games.cdn.famobi.com/html5games/t/truck-trials/v500/?fg_domain=play.famobi.com&fg_aid=A1000-1&fg_uid=e56b8aaa-86e9-4d9f-9ea1-3822a3021716&fg_pid=4638e320-4444-4514-81c4-d80a8c662371&fg_beat=402&original_ref=https%3A%2F%2Fhtml5games.com%2F">Truck Trials</a></li>
+          <li><a href="https://games.cdn.famobi.com/html5games/s/sea-bubble-shooter/v100/?fg_domain=play.famobi.com&fg_aid=A1000-1&fg_uid=cc020dab-0caa-4461-9b88-cd8f70f03797&fg_pid=4638e320-4444-4514-81c4-d80a8c662371&fg_beat=410&original_ref=https%3A%2F%2Fhtml5games.com%2F">Sea Bubble Shooter</a></li>
+          <li><a href="https://games.cdn.famobi.com/html5games/p/pull-pins/v220/?fg_domain=play.famobi.com&fg_aid=A1000-1&fg_uid=c24e5a78-927a-4b7c-a536-3452d1f57021&fg_pid=4638e320-4444-4514-81c4-d80a8c662371&fg_beat=412&original_ref=https%3A%2F%2Fhtml5games.com%2F">Pull Pins</a></li>
+          <li><a href="https://games.cdn.famobi.com/html5games/s/streetrace-fury/v360/?fg_domain=play.famobi.com&fg_aid=A1000-1&fg_uid=c124e0c0-7312-4f81-bdf0-ab1dbcc47ed4&fg_pid=4638e320-4444-4514-81c4-d80a8c662371&fg_beat=434&original_ref=https%3A%2F%2Fhtml5games.com%2F">Street Race Fury</a></li>
+        </ul>
+       </form>
+      </div>
+    </div>
+  </div>
+</div>
                           </div>
                         </ul>
                         <div style="display: none;" id="GameUpload">
