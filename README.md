@@ -1,5 +1,5 @@
 # gamebase
-My first ever website which is a collection of various categories of games and features like search , filters, login to play and others. A gaming website-Gamebase
+My first ever website which is a collection of various categories of games and has features like search , filters, login to play and others. A gaming website-Gamebase
 ## Game developed by myself which is added in the webpage:
 #### I have developed a simple jump and hit game using just HTML, CSS and javascript which I have included in Arcade section of categories in the game website under the name tag  My Game
 ### Description:
