@@ -39,21 +39,21 @@
     </style>
 </head>
 <body style="background-color: darkgreen;">
+    
     <div class="row">
-    <div class="col-4"><img style="height: 100px;width: 200px;margin-top: 5px;margin-left: 30px;border-radius: 90px;" src="logo1.jpg" alt="logo"></div>
-    <div class="col-8"><h1><b>AS Game</b></h1></div>
+    <div class="col"><img style="height: 100px;width: 200px;margin-top: 5px;margin-left: 30px;border-radius: 90px;" src="logo1.jpg" alt="logo"></div>
+    <div class="col"><h1><b>AS Game</b></h1></div>
     </div>
     <div id="game" style="background-color:skyblue;">
-        <button onclick="jump()" style="width: 200px;height: 100px;border-radius: 30px;margin-left: 1100px;  box-shadow: 0 9px #999;margin-top:0;margin-top: 50px;" class="btn btn-warning"><b style="font-size: 50px;">Jump</b></button>
+       <div class="col"><button onclick="jump()" style="width: 200px;height: 100px;border-radius: 30px;margin-left: 1100px;  box-shadow: 0 9px #999;margin-top:0;margin-top: 50px;" class="btn btn-warning"><b style="font-size: 50px;">Jump</b></button></div>
         <div id="dracula">
-          <img style=" width: 100px;height: 90px;" src="lion.jpg" alt="lion">
+          <div class="col"><img class="col" style=" width: 100px;height: 90px;" src="lion.jpg" alt="lion"></div>
         </div>
-        <div id="obstacle">
+        <div class="col" id="obstacle">
           <img style="width: 200px;height: 200px;" src="hill.jpg" alt="hill">
         </div>
     </div>
     
-   
     <script src="script.js"></script>
 </body>
 </html>
